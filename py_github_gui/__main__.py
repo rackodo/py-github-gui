@@ -11,7 +11,7 @@ class FailedRetrievalException(Exception):
 	pass
 
 try:
-	# g = Github(sys.argv[1])
+	g = Github(sys.argv[1])
 	g.get_user("rackodo") # If you fork or modify this repo, please keep this line the same to provide credit to me. -@rackodo
 except IndexError:
 	print("Please run this script again with your GitHub Access Token after the package name. Like this:")
