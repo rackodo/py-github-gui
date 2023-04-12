@@ -2,6 +2,7 @@ from github import Github
 from github.GithubException import *
 import tkinter as tk
 from tkinter import messagebox
+from url_normalize import url_normalize
 import requests
 import sys
 from PIL import ImageTk, Image
@@ -48,9 +49,7 @@ user = None
 userAvatar = None
 
 def updateName():
-	result = user.name if user.name != None else ("@" + user.login.lower())
-
-	profileRealName.configure(text=result)
+	profileRealName.configure(text=user.name if user.name != None else ("@" + user.login.lower()))
 	
 
 def updateAvatar():
@@ -58,6 +57,33 @@ def updateAvatar():
 	avatar = ImageTk.PhotoImage(avatarRaw)
 	profilePicWrapper.configure(image = avatar)
 	profilePicWrapper.image = avatar
+
+def updateContact():
+	userContact.configure(text=("Contact: " + (user.email if user.email != None else "None")))
+
+def updateBlog():
+	userBlog.configure(text=("Blog: " + (url_normalize(user.blog) if user.blog != "" else "None")))
+
+def updateLocation():
+	userLocation.configure(text=("Location: " + (user.location if user.location != None else "None")))
+
+def updateRepos():
+	userRepos.configure(text=("Repos: " + str(user.public_repos)))
+
+def updateStars():
+	userStars.configure(text=("Stars: " + str(user.get_starred().totalCount)))
+
+def updateFollowing():
+	userFollowing.configure(text=("Following: " + str(user.following)))
+
+def updateFollowers():
+	userFollowers.configure(text=("Followers: " + str(user.followers)))
+
+def handleButton():
+	receiveUser()
+
+def handleKey(event):
+	receiveUser()
 
 def receiveUser():
 	global user
@@ -69,6 +95,13 @@ def receiveUser():
 
 	updateName()
 	updateAvatar()
+	updateContact()
+	updateBlog()
+	updateLocation()
+	updateRepos()
+	updateStars()
+	updateFollowing()
+	updateFollowers()
 
 win = tk.Tk()
 win.title("Py Github GUI")
@@ -84,7 +117,7 @@ left.place(x=0, y=0, anchor="nw", width=150, height=300)
 profilePic = ImageTk.PhotoImage(Image.open("py_github_gui/placeholder.png").resize((150, 150), Image.LANCZOS))
 profilePicWrapper = tk.Label(left, image = profilePic, width=150, height=150)
 profileRealName = tk.Label(left, font=("Arial", 16), text="Waiting...")
-infoButton = tk.Button(left, width=150, text="Get Information", command=receiveUser)
+infoButton = tk.Button(left, width=150, text="Get Information", command=handleButton)
 usernameEntry = EntryWithPlaceholder(left, placeholder="GitHub Username")
 usernameEntry.configure(width=150, justify=tk.CENTER)
 
@@ -99,15 +132,19 @@ right.place(x=150, y=0, anchor="nw", width=350, height=300)
 container = tk.Frame(right)
 container.pack(side=tk.LEFT, fill="x", expand=1)
 
-test = tk.Label(container, text="Yoinky")
-test2 = tk.Label(container, text="Yoinky2")
-test3 = tk.Label(container, text="Yoinky3")
-test4 = tk.Label(container, text="Yoinky4")
+userContact = tk.Label(container, text="Contact: ")
+userBlog = tk.Label(container, text="Blog: ")
+userLocation = tk.Label(container, text="Location: ")
+userRepos = tk.Label(container, text="Repos: ")
+userStars = tk.Label(container, text="Stars: ")
+userFollowing = tk.Label(container, text="Following: ")
+userFollowers = tk.Label(container, text="Followers: ")
 
-for widget in [ test, test2, test3, test4 ]:
+for widget in [ userContact, userBlog, userLocation, userRepos, userStars, userFollowing, userFollowers ]:
 	widget.configure(anchor="w")
 	widget.pack_propagate(False)
 	widget.pack(fill="both", expand=1)
 
 win.resizable(width=False, height=False)
+win.bind("<Return>", handleKey)
 win.mainloop()
