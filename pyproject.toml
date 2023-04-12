@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "PyGithub", "Pillow", "requests"]
+requires = ["setuptools>=61.0", "PyGithub", "Pillow", "requests", "url_normalize"]
 build-backend = "setuptools.build_meta"
 
 [project]
