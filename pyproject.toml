@@ -4,13 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "py-github-gui-rackodo"
-version = "1.0.1"
+version = "1.0.2"
 authors = [
   { name="Bash Elliott", email="rackodo.business@gmail.com" },
 ]
 description = "Python GUI for Github using the Github API."
 readme = "README.md"
 requires-python = ">=3.7"
+dependencies = [
+	"PyGithub",
+	"Pillow",
+	"requests",
+	"url_normalize"
+]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
