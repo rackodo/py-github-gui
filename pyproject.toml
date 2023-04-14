@@ -12,10 +12,10 @@ description = "Python GUI for Github using the Github API."
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
-	"PyGithub==1.58.1",
-	"Pillow==9.5.0",
-	"requests==2.28.2",
-	"url_normalize==1.4.3"
+	"PyGithub",
+	"Pillow",
+	"requests",
+	"url_normalize"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
