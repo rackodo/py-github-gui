@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="py-github-gui-rackodo",
-    version="1.0.6",
+    version="1.0.7",
     author="Bash Elliott",
     author_email="rackodo.business@gmail.com",
     description="Python GUI for Github using the Github API.",

@@ -6,6 +6,7 @@ from tkinter import messagebox
 from url_normalize import url_normalize
 import requests
 import sys
+import os
 from PIL import ImageTk, Image
 
 # Thanks to https://stackoverflow.com/a/47928390
@@ -132,7 +133,7 @@ left.place(x=0, y=0, anchor="nw", width=150, height=300)
 
 # Set up the left column's widgets
 ## Set up the profile image and wrapper
-profilePic = ImageTk.PhotoImage(Image.open("py_github_gui/placeholder.png").resize((150, 150), Image.LANCZOS))
+profilePic = ImageTk.PhotoImage(Image.open(os.path.dirname(__file__) + "/placeholder.png").resize((150, 150), Image.LANCZOS))
 profilePicWrapper = tk.Label(left, image = profilePic, width=150, height=150)
 
 profileRealName = tk.Label(left, font=("Arial", 16), text="Waiting...")
