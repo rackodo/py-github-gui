@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "PyGithub", "Pillow", "requests", "url_normalize"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -12,10 +12,10 @@ description = "Python GUI for Github using the Github API."
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
-	"PyGithub",
-	"Pillow",
-	"requests",
-	"url_normalize"
+	"PyGithub>=1.58.1",
+	"Pillow>=9.5.0",
+	"requests>=2.28.2",
+	"url_normalize>=1.4.3"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
