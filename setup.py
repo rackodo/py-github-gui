@@ -24,6 +24,11 @@ setuptools.setup(
     package_dir={"py_github_gui": "src"},
     package_data={'py_github_gui': ['placeholder.png']},
     python_requires=">=3.7",
-
+	install_requires=[
+		"Pillow==9.5.0",
+		"PyGithub==1.58.1",
+		"requests==2.28.2",
+		"url-normalize==1.4.3",
+	],
     include_package_data=True
 )
