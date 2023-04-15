@@ -8,12 +8,6 @@ A simple graphical user interface for receiving public details of a GitHub profi
 ![GitHub forks](https://img.shields.io/github/forks/rackodo/py-github-gui?style=social)
 ![Twitter Follow](https://img.shields.io/twitter/follow/rackodo?style=social)
 
-A template for README files that can be used for your future projects. A small description about the project, shields as well as the link to your repo.
-
-Open and view the Project using the `.zip` file provided or at my [GitHub Repository]
-
-The project is also hosted on [GitHub Pages]
-
 ## Table of Contents
 - [Getting Started](#getting-started)
 	- [Tools Required](#tools-required)
