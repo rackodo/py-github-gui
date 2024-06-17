@@ -1,8 +1,6 @@
 # Py Github GUI
 A simple graphical user interface for receiving public details of a GitHub profile.
 
-![animatedshowcase](https://user-images.githubusercontent.com/42397332/232237031-ab5060d4-5d46-4781-97b4-eafb163f8919.gif)
-
 ![Current Version](https://img.shields.io/badge/version-v1.1.1-blue)
 ![GitHub stars](https://img.shields.io/github/stars/rackodo/py-github-gui?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/rackodo/py-github-gui?style=social)
